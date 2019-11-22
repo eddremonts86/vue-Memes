@@ -98,11 +98,7 @@
                       <v-card-actions class="grey darken-3  ">
                         <v-spacer></v-spacer>
 
-                        <v-btn
-                          @click= "adTags(newTag)"
-                          class="primary"
-                          dark
-                        >
+                        <v-btn @click="adTags(newTag)" class="primary" dark>
                           <v-icon>add</v-icon>
                         </v-btn>
                       </v-card-actions>
@@ -173,20 +169,20 @@
                         <v-layout>
                           <v-flex class="center" xs12>
                             <v-text-field
-                                    append-icon="loyalty"
-                                    label="Add new Tag"
-                                    outline
-                                    v-model="newTag"
+                              append-icon="loyalty"
+                              label="Add new Tag"
+                              outline
+                              v-model="newTag"
                             />
                           </v-flex>
                         </v-layout>
                       </v-card-actions>
                       <v-card-text class="grey lighten-1">
                         <v-chip
-                                :key="key"
-                                @input="tags.splice(key, 1)"
-                                close
-                                v-for="(tag, key) in tags"
+                          :key="key"
+                          @input="tags.splice(key, 1)"
+                          close
+                          v-for="(tag, key) in tags"
                         >
                           <v-icon>loyalty</v-icon>
                           {{ tag }}
@@ -195,11 +191,7 @@
                       <v-card-actions class="grey darken-3  ">
                         <v-spacer></v-spacer>
 
-                        <v-btn
-                                @click= "adTags(newTag)"
-                                class="primary"
-                                dark
-                        >
+                        <v-btn @click="adTags(newTag)" class="primary" dark>
                           <v-icon>add</v-icon>
                         </v-btn>
                       </v-card-actions>
@@ -485,20 +477,20 @@ export default {
       this.description = "";
       this.dialogImageUpload = false;
     },
-    adTags(newTag){
-      if(newTag !== '' && newTag.length > 3){
-        this.tags.push(newTag)
-      }else {
+    adTags(newTag) {
+      if (newTag !== "" && newTag.length > 3) {
+        this.tags.push(newTag);
+      } else {
         this.$swal({
-          title: 'Problem with creating new tags',
-          text: 'You need a proper tag',
-          type: 'error'
+          title: "Problem with creating new tags",
+          text: "You need a proper tag",
+          type: "error"
         });
       }
     },
-    cleanTags(){
+    cleanTags() {
       this.tags = [];
-      this.newTag = ''
+      this.newTag = "";
     }
   }
 };

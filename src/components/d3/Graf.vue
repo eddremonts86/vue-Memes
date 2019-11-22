@@ -303,7 +303,7 @@ export default {
         .text(d => d.name)
 
         .append("img")
-        .attr("xlink:href", "https://github.com/favicon.ico")
+        .attr("xlink:href", d => d.path)
         .attr("x", 0)
         .attr("y", ".31em")
         .attr("width", 160)
