@@ -288,6 +288,12 @@
         "type": "needs"
       },
       {
+        "source": 10,
+        "target": 5,
+        "value": 1,
+        "type": "depends"
+      },
+      {
         "source": 11,
         "target": 10,
         "value": 1,
@@ -298,6 +304,24 @@
         "target": 3,
         "value": 3,
         "type": "depends"
+      },
+      {
+        "source": 12,
+        "target": 7,
+        "value": 1,
+        "type": "needs"
+      },
+      {
+        "source": 12,
+        "target": 5,
+        "value": 1,
+        "type": "needs"
+      },
+      {
+        "source": 12,
+        "target": 9,
+        "value": 1,
+        "type": "needs"
       },
       {
         "source": 13,
