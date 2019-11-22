@@ -2,8 +2,8 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify - </span>
-        <span class="font-weight-light">Vue APP Basic</span>
+        <span>Memes - </span>
+        <span class="font-weight-light">Repository</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
@@ -22,7 +22,6 @@
 </template>
 
 <script>
-
 export default {
   name: "App",
   components: {},

@@ -1,4 +1,4 @@
-# VueJS & Vuetify
+# VueJS & Vuetify & D3
 This is a complete app to start our vuejs projects as soon we clone it.
   - Elements 
     - Vue js 
@@ -11,6 +11,7 @@ This is a complete app to start our vuejs projects as soon we clone it.
     - Material Design Icons 
     - Eslint
     - Prettier
+    - d3   
  
   - Test tools
   
