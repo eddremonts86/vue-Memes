@@ -40,6 +40,30 @@
         </defs>
       </svg>
     </div>
+    <v-dialog
+            v-model="memeEditor"
+            transition="dialog-bottom-transition"
+            max-width="500px"
+    >
+      <v-card tile>
+        <v-card-title class="primary">{{nodeOBJ.name}}</v-card-title>
+        <v-card-text>
+          <v-layout wrap>
+            <v-flex class="mt-2" xs12><img :src="nodeOBJ.path" width="100%" height="300px"></v-flex>
+            <v-flex class="mt-2" xs12>  <v-chip
+                    :key="key"
+                    v-for="(tag, key) in nodeOBJ.tags"
+            >
+              <v-icon>loyalty</v-icon>
+              {{ tag }}
+            </v-chip></v-flex>
+          </v-layout>
+        </v-card-text>
+        <v-card-actions></v-card-actions>
+      </v-card>
+    </v-dialog>
+
+
   </v-card>
 </template>
 
@@ -88,7 +112,9 @@ export default {
           distance: 100,
           iterations: 1
         }
-      }
+      },
+      memeEditor:false,
+      nodeOBJ:{}
     };
   },
   computed: {
@@ -202,7 +228,7 @@ export default {
     async changeData() {
       let vue = this;
       vue.width = window.innerWidth - 100;
-      vue.height = window.innerHeight / 2;
+      vue.height = window.innerHeight - 150;
       vue.simulation = d3
         .forceSimulation()
         .force("link", d3.forceLink())
@@ -300,14 +326,7 @@ export default {
         .attr("x", 0)
         .attr("y", ".31em")
         .attr("text-anchor", "middle")
-        .text(d => d.name)
-
-        .append("img")
-        .attr("xlink:href", d => d.path)
-        .attr("x", 0)
-        .attr("y", ".31em")
-        .attr("width", 160)
-        .attr("height", 160);
+        .text(d => d.name);
 
       // Add 'marker-end' attribute to each path
       const svg = d3.select(this.$el.querySelector("svg"));
@@ -367,8 +386,8 @@ export default {
       simulation.alpha(1).restart();
     },
     updateNodeLinkCount() {
-      let nodeCount = this.nodes.length;
-      let linkCount = this.links.length;
+      let nodeCount = this.nodes ? this.nodes.length : 0;
+      let linkCount = this.links ? this.links.length : 0;
 
       const highlightedNodes = this.selections.graph.selectAll(
         "circle.highlight"
@@ -584,7 +603,9 @@ export default {
       const circle = this.selections.graph.selectAll("circle");
       circle.classed("selected", false);
       circle.filter(td => td === d).classed("selected", true);
-    }
+      this.memeEditor = true
+      this.nodeOBJ = d
+     }
   },
   watch: {
     data: {
@@ -673,5 +694,8 @@ rect.caption {
 text.caption {
   font-size: 14px;
   font-weight: bold;
+}
+.radio5 {
+  border-radius: 5px;
 }
 </style>

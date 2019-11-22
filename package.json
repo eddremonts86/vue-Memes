@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "jsonServer":  "json-server --watch src/jsonDB/db.json"
+    "jsonServer": "json-server --watch src/jsonDB/db.json"
   },
   "dependencies": {
     "axios": "^0.19.0",

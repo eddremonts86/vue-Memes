@@ -23,7 +23,7 @@
       <v-layout wrap>
         <v-flex xs12 class="">
           <v-layout wrap class="grey lighten-3 ma-1">
-            <v-flex class="ml-5">
+            <v-flex class="ml-5" xs12>
               <v-layout wrap>
                 <v-radio-group v-model="options" row>
                   <v-flex xs12 md4
@@ -43,15 +43,23 @@
                 :items="data.nodes"
                 class="mx-3 mt-5"
                 filled
+                rounded
                 item-text="name"
                 label="Search by Memes"
                 return-object
-                rounded
                 v-model="memeObj"
               ></v-autocomplete>
             </v-flex>
-            <v-flex>
-              <v-btn @click="searchMemes" class="mt-8">search</v-btn>
+            <v-flex xs2>
+              <v-btn
+                @click="searchMemes"
+                class="mt-5 center"
+                slot="activator"
+                color="primary"
+                dark
+                fab
+                ><v-icon>search</v-icon>
+              </v-btn>
             </v-flex>
           </v-layout></v-flex
         >
@@ -70,8 +78,16 @@
                 v-model="tags"
               ></v-autocomplete>
             </v-flex>
-            <v-flex>
-              <v-btn @click="searchMemesTags" class="mt-8">search</v-btn>
+            <v-flex xs2>
+              <v-btn
+                @click="searchMemesTags"
+                class="mt-5 center"
+                slot="activator"
+                color="primary"
+                dark
+                fab
+                ><v-icon>search</v-icon></v-btn
+              >
             </v-flex>
           </v-layout></v-flex
         >

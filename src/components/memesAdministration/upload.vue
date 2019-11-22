@@ -5,6 +5,8 @@
       max-width="700"
       v-model="dialogImageUpload"
       width="60%"
+      transition="dialog-bottom-transition"
+
     >
       <template v-slot:activator="{ on }">
         <v-btn class="primary" v-on="on" dark fab small>
@@ -53,7 +55,8 @@
                       append-icon="attach_file"
                       hint="Note : Image width and height should be at least 600 x 600 pixels."
                       label="Upload Image"
-                      outline
+                      filled
+                      rounded
                       persistent-hint
                       v-model="imageName"
                     />
@@ -68,19 +71,32 @@
                   <v-flex xs12>
                     <v-text-field
                       label="Image Description"
-                      outline
+                      filled
+                      rounded
                       v-model="description"
                     />
                     <v-card>
-                      <v-card-actions class="grey darken-3  ">
+                      <v-card-actions class="  ">
                         <v-layout>
-                          <v-flex class="center" xs12>
+                          <v-flex class="center" xs10>
                             <v-text-field
                               append-icon="loyalty"
                               label="Add new Tag"
-                              outline
+                              filled
+                              rounded
                               v-model="newTag"
                             />
+                          </v-flex>
+                          <v-flex xs2 class="pl-3">
+                            <v-btn
+                              @click="adTags(newTag)"
+                              slot="activator"
+                              color="primary"
+                              dark
+                              fab
+                            >
+                              <v-icon>add</v-icon>
+                            </v-btn>
                           </v-flex>
                         </v-layout>
                       </v-card-actions>
@@ -95,13 +111,6 @@
                           {{ tag }}
                         </v-chip>
                       </v-card-text>
-                      <v-card-actions class="grey darken-3  ">
-                        <v-spacer></v-spacer>
-
-                        <v-btn @click="adTags(newTag)" class="primary" dark>
-                          <v-icon>add</v-icon>
-                        </v-btn>
-                      </v-card-actions>
                     </v-card>
                   </v-flex>
                 </v-card-text>
@@ -136,7 +145,8 @@
                         append-icon="attach_file"
                         hint="Note : Video width and height should has a maximum resolution of 1920 x 1920 pixels."
                         label="Upload Video"
-                        outline
+                        filled
+                        rounded
                         persistent-hint
                         v-model="videoName"
                       />
@@ -160,20 +170,33 @@
                   </v-flex>
                   <v-flex xs12>
                     <v-text-field
-                      label="Video  Description"
-                      outline
+                      label="Video Description"
+                      filled
+                      rounded
                       v-model="description"
                     />
                     <v-card>
-                      <v-card-actions class="grey darken-3  ">
+                      <v-card-actions>
                         <v-layout>
-                          <v-flex class="center" xs12>
+                          <v-flex class="center" xs10>
                             <v-text-field
                               append-icon="loyalty"
                               label="Add new Tag"
-                              outline
+                              filled
+                              rounded
                               v-model="newTag"
                             />
+                          </v-flex>
+                          <v-flex xs2 class="pl-3">
+                            <v-btn
+                              @click="adTags(newTag)"
+                              slot="activator"
+                              color="primary"
+                              dark
+                              fab
+                            >
+                              <v-icon>add</v-icon>
+                            </v-btn>
                           </v-flex>
                         </v-layout>
                       </v-card-actions>
@@ -188,13 +211,6 @@
                           {{ tag }}
                         </v-chip>
                       </v-card-text>
-                      <v-card-actions class="grey darken-3  ">
-                        <v-spacer></v-spacer>
-
-                        <v-btn @click="adTags(newTag)" class="primary" dark>
-                          <v-icon>add</v-icon>
-                        </v-btn>
-                      </v-card-actions>
                     </v-card>
                   </v-flex>
                 </v-card-text>
@@ -206,11 +222,11 @@
 
         <v-card-actions>
           <v-spacer />
-          <v-btn @click="saveMedia" class="primary">
-            upload
+          <v-btn @click="saveMedia" color="primary" dark fab>
+            <v-icon>cloud_upload</v-icon>
           </v-btn>
-          <v-btn @click="resetForm" color="primary">
-            close
+          <v-btn @click="resetForm" color="primary" dark fab>
+            <v-icon>close</v-icon>
           </v-btn>
         </v-card-actions>
       </v-card>
