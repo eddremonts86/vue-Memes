@@ -40,7 +40,7 @@
             </v-flex>
             <v-flex xs10>
               <v-autocomplete
-                :items="data.nodes"
+                :items="getMemes"
                 class="mx-3 mt-5"
                 filled
                 rounded
@@ -67,7 +67,7 @@
           <v-layout wrap>
             <v-flex xs10>
               <v-autocomplete
-                :items="data.nodes"
+                :items="getTags"
                 class="mx-3 mt-5"
                 filled
                 item-text="name"
@@ -94,7 +94,7 @@
       </v-layout>
     </v-card-actions>
     <v-card-text class="blue lighten-2 pa-5">
-      <Graf :data="data"></Graf>
+      <Graf :data="getMemes"></Graf>
     </v-card-text>
   </v-card>
 </template>
@@ -102,7 +102,7 @@
 <script>
 import Graf from "@/components/d3/Graf.vue";
 import upload from "@/components/memesAdministration/upload.vue";
-import * as d3 from "d3";
+import { mapGetters } from "vuex";
 
 export default {
   name: "index",
@@ -118,25 +118,16 @@ export default {
       memeObj: []
     };
   },
+  computed: {
+    ...mapGetters(["getMemes", "getTags"])
+  },
   mounted() {
-    // eslint-disable-next-line no-console
-    console.log("App loaded");
     this.changeData();
   },
   methods: {
     async changeData() {
-      let vue = this;
-      await d3
-        .json("http://localhost:3000/graf")
-        .then(data => {
-          vue.data = data;
-        })
-        .catch(error => {
-          // eslint-disable-next-line no-console
-          console.error(
-            "Cannot proceed with simulation, failed to  retrieve data. " + error
-          );
-        });
+      this.$store.dispatch("fetchMemesForGraf");
+      this.$store.dispatch("fetchTags");
     },
     searchMemes() {
       const obj = {

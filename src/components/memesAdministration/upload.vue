@@ -6,7 +6,6 @@
       v-model="dialogImageUpload"
       width="60%"
       transition="dialog-bottom-transition"
-
     >
       <template v-slot:activator="{ on }">
         <v-btn class="primary" v-on="on" dark fab small>

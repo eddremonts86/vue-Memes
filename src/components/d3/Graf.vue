@@ -41,29 +41,28 @@
       </svg>
     </div>
     <v-dialog
-            v-model="memeEditor"
-            transition="dialog-bottom-transition"
-            max-width="500px"
+      v-model="memeEditor"
+      transition="dialog-bottom-transition"
+      max-width="500px"
     >
       <v-card tile>
-        <v-card-title class="primary">{{nodeOBJ.name}}</v-card-title>
+        <v-card-title class="primary">{{ nodeOBJ.name }}</v-card-title>
         <v-card-text>
           <v-layout wrap>
-            <v-flex class="mt-2" xs12><img :src="nodeOBJ.path" width="100%" height="300px"></v-flex>
-            <v-flex class="mt-2" xs12>  <v-chip
-                    :key="key"
-                    v-for="(tag, key) in nodeOBJ.tags"
+            <v-flex class="mt-2" xs12
+              ><img :src="nodeOBJ.path" width="100%" height="300px"
+            /></v-flex>
+            <v-flex class="mt-2" xs12>
+              <v-chip :key="key" v-for="(tag, key) in nodeOBJ.tags">
+                <v-icon>loyalty</v-icon>
+                {{ tag }}
+              </v-chip></v-flex
             >
-              <v-icon>loyalty</v-icon>
-              {{ tag }}
-            </v-chip></v-flex>
           </v-layout>
         </v-card-text>
         <v-card-actions></v-card-actions>
       </v-card>
     </v-dialog>
-
-
   </v-card>
 </template>
 
@@ -113,8 +112,8 @@ export default {
           iterations: 1
         }
       },
-      memeEditor:false,
-      nodeOBJ:{}
+      memeEditor: false,
+      nodeOBJ: {}
     };
   },
   computed: {
@@ -603,9 +602,9 @@ export default {
       const circle = this.selections.graph.selectAll("circle");
       circle.classed("selected", false);
       circle.filter(td => td === d).classed("selected", true);
-      this.memeEditor = true
-      this.nodeOBJ = d
-     }
+      this.memeEditor = true;
+      this.nodeOBJ = d;
+    }
   },
   watch: {
     data: {
