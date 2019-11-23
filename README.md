@@ -1,53 +1,24 @@
-# VueJS & Vuetify & D3
-This is a complete app to start our vuejs projects as soon we clone it.
-  - Elements 
-    - Vue js 
-    - Vuetify
-    - Route
-    - Axios
-    - Store 
-    - SASS / SCSS
-    - Sweet Alert 2
-    - Material Design Icons 
-    - Eslint
-    - Prettier
-    - d3   
- 
-  - Test tools
-  
-    - Jest
-    - Cypress
-    
+# Memes Graphic Visualisation  
+
+This is a complete app is based in Edd Remonts Vuejs Template.
+https://github.com/eddremonts86/vue_plus_vuetify (more info)
+
+  - New Plugin       
+    - d3
+    - JsonServer
         
 ## Project setup
 ```
-npm install
+- npm install
+- npm update
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+- npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+- npm run build
 ```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
