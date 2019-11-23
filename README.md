@@ -17,6 +17,7 @@ https://github.com/eddremonts86/vue_plus_vuetify (more info)
 ### Compiles and hot-reloads for development
 ```
 - npm run serve
+- npm run jsonServer (run local jsonServe)
 ```
 
 ### Compiles and minifies for production
